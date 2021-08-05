@@ -23,26 +23,28 @@
 		2.1.4-	Crear algoritmo addGame(Game):boolean en la clase
 		2.1.5-	Documentar el metodo
 		2.1.6-	Prueba de calidad
-	2.2-	Crear mÃ©todo addGame(Game):boolean en capa Service
-	2.3-	Crear mÃ©todo addGame(Game):boolean en capa Controller
+	2.2-	Crear método addGame(Game):boolean en capa Service
+	2.3-	Crear método addGame(Game):boolean en capa Controller
 
 3- Editar juego
-	3.1-	Crear metodo editGame():boolean en capa (Datos)
-		3.1.1-	Dar de alta el metodo editGames():boolean en la interfaz Games
-		3.1.2-	Crear algoritmo editGames():boolean en la clase
+	3.1-	Crear metodo editGame(Game):boolean en capa (Datos)
+		3.1.1-	Dar de alta el metodo editGames(Game):boolean en la interfaz Games
+		3.1.2-	Crear algoritmo editGame(Game):boolean en la clase
+		3.1.1-	Dar de alta el metodo getGame(Game):Game en la interfaz Games
+		3.1.2-	Crear algoritmo getGame(String):Game en la clase
 		3.1.3-	Documentar el metodo
 		3.1.4-	Prueba de calidad
-	3.2-	Crear mÃ©todo editGame():boolean en capa Service
-	3.3-	Crear mÃ©todo editGame():boolean en capa Controller
+	3.2-	Crear método editGame(Game):boolean en capa Service
+	3.3-	Crear método editGame(Game):boolean en capa Controller
 
 4- Borrar juego
-	4.1-	Crear mÃ©todo deleteGame(Game):boolean en capa (Datos)
-		4.1.1-	Dar de alta el metodo deleteGames():boolean en la interfaz Games
-		4.1.2-	Crear algoritmo deleteGames():boolean en la clase
+	4.1-	Crear método deleteGame(Game):boolean en capa (Datos)
+		4.1.1-	Dar de alta el metodo deleteGame(Game):boolean en la interfaz Games
+		4.1.2-	Crear algoritmo deleteGame(Game):boolean en la clase
 		4.1.3-	Documentar el metodo
 		4.1.4-	Prueba de calidad
-	4.2-	Crear mÃ©todo deleteGame(Game):boolean en capa Service
-	4.3-	Crear mÃ©todo deleteGame(Game):boolean en capa Controller
+	4.2-	Crear método deleteGame(Game):boolean en capa Service
+	4.3-	Crear método deleteGame(Game):boolean en capa Controller
 
 5- Listar juego
 	5.1-	Crear metodo getGames():List<Game> en capa (Datos)
@@ -50,8 +52,8 @@
 		5.1.2-	Crear algoritmo getGames():List<Game> en la clase
 		5.1.3-	Documentar el metodo
 		5.1.4-	Prueba de calidad
-	5.2-	Crear mÃ©todo getGames():List<Game> en capa Service
-	5.3-	Crear mÃ©todo getGames():List<Game> en capa Controller
+	5.2-	Crear método getGames():List<Game> en capa Service
+	5.3-	Crear método getGames():List<Game> en capa Controller
 
 6- Listar editores
 	6.1-	Crear metodo getPublishers():List<Publisher> en capa (Datos)
@@ -61,8 +63,8 @@
 		6.1.4-	Crear algoritmo getPublishers():List<Publisher> en la clase
 		6.1.5-	Documentar el metodo
 		6.1.6-	Prueba de calidad
-	6.2-	Crear mÃ©todo getPublishers():List<Publisher> en capa Service
-	6.3-	Crear mÃ©todo getPublishers():List<Publisher> en capa Controller
+	6.2-	Crear método getPublishers():List<Publisher> en capa Service
+	6.3-	Crear método getPublishers():List<Publisher> en capa Controller
 
 7- Listar juegos por editores
 	7.1-	Crear metodo getGamesByPublishers(Publisher):List<Game> en capa (Datos)
@@ -70,8 +72,8 @@
 		7.1.4-	Crear algoritmo getGamesByPublishers(Publisher):List<Game> en la clase
 		7.1.5-	Documentar el metodo
 		7.1.6-	Prueba de calidad
-	7.2-	Crear mÃ©todo getGamesByPublishers(Publisher):List<Game> en capa Service
-	7.3-	Crear mÃ©todo getGamesByPublishers(Publisher):List<Game> en capa Controller
+	7.2-	Crear método getGamesByPublishers(Publisher):List<Game> en capa Service
+	7.3-	Crear método getGamesByPublishers(Publisher):List<Game> en capa Controller
 
 
 8- Listar juegos por genero 
@@ -80,8 +82,8 @@
 		8.1.2-	Crear algoritmo getGamesByGenre(GamesGenre):List<Game> en la clase
 		8.1.3-	Documentar el metodo
 		8.1.4-	Prueba de calidad
-	8.2-	Crear mÃ©todo getGamesByGenre(Genre):List<Game> en capa Service
-	8.3-	Crear mÃ©todo getGamesByGenre(Genre):List<Game> en capa Controller
+	8.2-	Crear método getGamesByGenre(Genre):List<Game> en capa Service
+	8.3-	Crear método getGamesByGenre(Genre):List<Game> en capa Controller
 
 8- Listar juegos sigo XX
 	9.1-	Crear metodo getGamesByDate(int):List<Game> en capa (Datos)
@@ -89,14 +91,14 @@
 		9.1.2-	Crear algoritmo getGamesByDate(int):List<Game> en la clase
 		9.1.3-	Documentar el metodo
 		9.1.4-	Prueba de calidad
-	9.2-	Crear mÃ©todo getGamesSXX():List<Game> en capa Service
+	9.2-	Crear método getGamesSXX():List<Game> en capa Service
 		9.2.1-  Crear getGamesSXX():List<Game> en la clase		
-	9.3-	Crear mÃ©todo getGamesSXX():List<Game> en capa Controller
+	9.3-	Crear método getGamesSXX():List<Game> en capa Controller
 
-10- Listar juegos aÃ±os pares
-	10.1-	Crear mÃ©todo getGamesEvenYear():List<Game> en capa Service
+10- Listar juegos años pares
+	10.1-	Crear método getGamesEvenYear():List<Game> en capa Service
 		10.1.1-  Crear algoritmo getGamesEvenYear():List<Game> en la clase
-		10.1.2-  Documentar el mÃ©todo
+		10.1.2-  Documentar el método
 		10.1.3-	 Prueba de calidad
 
 11- Listar juegos Nintendo 
@@ -104,4 +106,3 @@
 		11.1.1-	 Crear algoritmo getGamesNintendo():List<Game> en la clase
 		11.1.2-	 Documentar el metodo
 		11.1.3-	 Prueba de calidad
-	
