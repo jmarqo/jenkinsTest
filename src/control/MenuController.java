@@ -93,7 +93,14 @@ public class MenuController {
 		
 	}
 	
-	public static void showDateInput() {}
+	public static void showDateInput() {
+		//
+	}
+	
+	public static void showXXCenturyGames() {
+		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesSXX();
+		MenuViews.showGamesList(gameList);
+	}
 	
 	public static void showPublisherList() {}
 	
