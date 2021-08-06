@@ -2,34 +2,38 @@ package services;
 
 import java.util.List;
 
+import data.Games;
+import data.GamesImpl;
 import model.Game;
 import model.Genre;
 import model.Publisher;
 
 public class ServicesGameImpl implements ServicesGame{
 
+	private Games games = new GamesImpl();
+	
 	@Override
 	public List<Game> getGames() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return games.getGames();
 	}
 
 	@Override
 	public boolean addGame(Game g) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return games.addGame(g);
 	}
 
 	@Override
 	public boolean deleteGame(int index) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return games.deleteGame(index);
 	}
 
 	@Override
 	public boolean editGame(Game g, int index) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return games.editGame(g, index);
 	}
 
 	@Override
