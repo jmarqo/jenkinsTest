@@ -5,6 +5,8 @@ import java.util.List;
 
 import data.Games;
 import data.GamesImpl;
+import data.Publishers;
+import data.PublishersImpl;
 import model.Game;
 import model.Genre;
 import model.Publisher;
@@ -12,6 +14,7 @@ import model.Publisher;
 public class ServicesGameImpl implements ServicesGame{
 
 	private Games games = new GamesImpl();
+	private Publishers publishers = new PublishersImpl();
 
 	@Override
 	public List<Game> getGames() {
@@ -83,8 +86,8 @@ public class ServicesGameImpl implements ServicesGame{
 
 	@Override
 	public List<Publisher> getPublishers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return publishers.getPublishers();
 	}
 
 	@Override
