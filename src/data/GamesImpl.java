@@ -45,5 +45,9 @@ public class GamesImpl implements Games{
 		return false;
 	}
 
+	public static void setGameList(List<Game> gameList) {
+		GamesImpl.gameList = gameList;
+	}
+
 	
 }

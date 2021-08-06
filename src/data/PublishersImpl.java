@@ -14,5 +14,9 @@ public class PublishersImpl implements Publishers{
 		return publishersList;
 	}
 
+	public static void setPublishersList(List<Publisher> publishersList) {
+		PublishersImpl.publishersList = publishersList;
+	}
+
 	
 }
