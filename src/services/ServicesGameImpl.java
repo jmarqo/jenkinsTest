@@ -136,19 +136,19 @@ public class ServicesGameImpl implements ServicesGame{
 		List<Game> r = new ArrayList<Game>();
 
 		List<Game> games = getGames();
-		
+
 		for (int ii = 0 ; ii < games.size() ; ii++) {
-			
+
 			// Saber si el año es par
-			
+
 			int resto;
-			
+
 			resto = games.get(ii).getRelease().getYear() % 2;
-			
+
 			// si es par llamar a la funcion para todos esos años y añadir datos a la nueva lista
-			
+
 			if (resto == 0)
-			r.addAll(getGamesByDate(ii));
+				r.addAll(getGamesByDate(ii));
 		}
 
 		return r;
@@ -156,11 +156,21 @@ public class ServicesGameImpl implements ServicesGame{
 
 	@Override
 	public List<Game> getGamesNintendo() {
-		
-		
-		
-		
-		return null;
+
+		List<Game> r = new ArrayList<Game>();
+
+		List<Game> games = getGames();
+
+		for (int ii = 0 ; ii < games.size() ; ii++) {
+
+			// Saber si el juego es de una consola de nintendo y si es de nintendo añadirlo a la nueva lista
+
+			if (games.get(ii).getRelease().getPlatform().getCompany().equals("Nintendo"))
+
+				r.add(games.get(ii));		
+		}
+
+		return r;
 	}
 
 
