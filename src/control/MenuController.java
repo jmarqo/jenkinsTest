@@ -4,6 +4,7 @@ import java.awt.List;
 import java.util.ArrayList;
 
 import gui.MenuViews;
+import gui.ResultsViews;
 import model.Genre;
 import model.Game;
 import services.ServicesGameImpl;
@@ -64,7 +65,7 @@ public class MenuController {
 	}
 	
 	public static void showGamesList() {
-		MenuViews.showGamesList(services.getGames());
+		ResultsViews.showGamesList(services.getGames());
 		Listener.getString();
 	}
 	
@@ -89,7 +90,7 @@ public class MenuController {
 		}
 		
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesByGenre(genre);
-		MenuViews.showGamesList(gameList);
+		ResultsViews.showGamesList(gameList);
 		
 	}
 	
@@ -99,7 +100,12 @@ public class MenuController {
 	
 	public static void showXXCenturyGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesSXX();
-		MenuViews.showGamesList(gameList);
+		ResultsViews.showGamesList(gameList);
+	}
+	
+	public static void showEvenYearGames() {
+		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesEvenYear();
+		ResultsViews.showGamesList(gameList);
 	}
 	
 	public static void showPublisherList() {}
