@@ -9,7 +9,7 @@ public class GamesImpl implements Games{
 	private static List<Game> gameList;
 	
 	@Override
-	public List<Game> getGames() {
+	public  List<Game> getGames() {
 		
 		return gameList;
 	}
