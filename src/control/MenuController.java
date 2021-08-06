@@ -15,6 +15,29 @@ public class MenuController {
 			int option = Listener.getInt();
 			System.out.println(option);
 			
+			switch(option) {
+			case 1:
+				showGamesList();
+				break;
+			case 2:
+				showGenresMenu();
+				break;
+			case 3:
+				showDateInput();
+				break;
+			case 4:
+				showPublisherMenu();
+				break;
+			case 5:
+				showConsoleMenu();
+				break;
+			case 6:
+				showNintendoGames();
+				break;
+			case 0:
+				break;
+			}
+			
 		}catch(java.util.InputMismatchException i) {
 			
 			showMainMenu();
