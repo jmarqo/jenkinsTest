@@ -1,12 +1,13 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.Game;
 
 
 public class GamesImpl implements Games{
 
-	private static List<Game> gameList;
+	private static List<Game> gameList = new ArrayList<Game>();
 	
 	@Override
 	public  List<Game> getGames() {
@@ -45,9 +46,6 @@ public class GamesImpl implements Games{
 		return false;
 	}
 
-	public static void setGameList(List<Game> gameList) {
-		GamesImpl.gameList = gameList;
-	}
 
 	
 }
