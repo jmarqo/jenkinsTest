@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import gui.MenuViews;
 import gui.ResultsViews;
 import model.Genre;
+import model.Publisher;
 import model.Game;
 import services.ServicesGameImpl;
 import utilities.Listener;
@@ -34,19 +35,19 @@ public class MenuController {
 				showMainMenu();
 				break;
 			case 3:
-				showDateInput();
+				showXXCenturyGames();
 				showMainMenu();
 				break;
 			case 4:
-				showPublisherList();
+				showEvenYearGames();
 				showMainMenu();
 				break;
 			case 5:
-				showConsoleMenu();
+				showNintendoGames();
 				showMainMenu();
 				break;
 			case 6:
-				showNintendoGames();
+				showPublisherList();
 				showMainMenu();
 				break;
 			case 0:
@@ -66,6 +67,7 @@ public class MenuController {
 	
 	public static void showGamesList() {
 		ResultsViews.showGamesList(services.getGames());
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
 		Listener.getString();
 	}
 	
@@ -91,6 +93,9 @@ public class MenuController {
 		
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesByGenre(genre);
 		ResultsViews.showGamesList(gameList);
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
+		Listener.getString();
+		
 		
 	}
 	
@@ -101,18 +106,33 @@ public class MenuController {
 	public static void showXXCenturyGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesSXX();
 		ResultsViews.showGamesList(gameList);
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
+		Listener.getString();
 	}
 	
 	public static void showEvenYearGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesEvenYear();
 		ResultsViews.showGamesList(gameList);
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
+		Listener.getString();
 	}
 	
-	public static void showPublisherList() {}
+	public static void showPublisherList() {
+		ArrayList<Publisher> publisherList = (ArrayList<Publisher>) services.getPublishers();
+		ResultsViews.showPublishersList(publisherList);
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
+		Listener.getString();
+		
+	}
 	
-	public static void showConsoleMenu() {}
+	//public static void showPlatformMenu() {}
 	
-	public static void showNintendoGames() {}
+	public static void showNintendoGames() {
+		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesNintendo();
+		ResultsViews.showGamesList(gameList);
+		System.out.println("Pulse 'Enter' para volver al menú principal.");
+		Listener.getString();
+	}
 	
 	/*
 	 * 1. lista de juegos completa

@@ -1,8 +1,13 @@
 package control;
 
+import model.Game;
+import model.Genre;
+import model.Publisher;
+import services.ServicesGameImpl;
+
 public class ControllerGame {
 	
-	private ServiceGame service;
+	private ServicesGameImpl service;
 	
 	public void addGame(Game game) {
 		//
