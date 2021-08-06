@@ -99,13 +99,13 @@ public class ServicesGameImpl implements ServicesGame{
 		
 		for(int ii = 0; ii < games.size(); ii++) {
 			
+			// si el publisher coincide con el publisher del juego, guardarlo en la nueva lista
+			if(games.get(ii).getPublisher().equals(publisher))
+				r.add(games.get(ii));
+			
 		}
 				
-		// si el publisher coincide con el publisher del juego, guardarlo en la nueva lista
-				
-
-		
-		return null;
+		return r;
 	}
 
 	@Override
