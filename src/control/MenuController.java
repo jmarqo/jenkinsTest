@@ -1,9 +1,17 @@
 package control;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import gui.MenuViews;
+import model.Genre;
+import model.Game;
+import services.ServicesGameImpl;
 import utilities.Listener;
 
 public class MenuController {
+	
+	private static ServicesGameImpl services = new ServicesGameImpl();
 	
 	public static void showMainMenu() {
 		
@@ -18,41 +26,76 @@ public class MenuController {
 			switch(option) {
 			case 1:
 				showGamesList();
+				showMainMenu();
 				break;
 			case 2:
 				showGenresMenu();
+				showMainMenu();
 				break;
 			case 3:
 				showDateInput();
+				showMainMenu();
 				break;
 			case 4:
-				showPublisherMenu();
+				showPublisherList();
+				showMainMenu();
 				break;
 			case 5:
 				showConsoleMenu();
+				showMainMenu();
 				break;
 			case 6:
 				showNintendoGames();
+				showMainMenu();
 				break;
 			case 0:
 				break;
+			default:
+				System.out.println("Opción incorrecta.");
+				showMainMenu();
 			}
 			
 		}catch(java.util.InputMismatchException i) {
-			
+			System.out.println("Opción incorrecta.");
 			showMainMenu();
 			
 		}
 		
 	}
 	
-	public static void showGamesList() {}
+	public static void showGamesList() {
+		MenuViews.showGamesList(services.getGames());
+		Listener.getString();
+	}
 	
-	public static void showGenresMenu() {}
+	public static void showGenresMenu() {
+		ArrayList<Genre> genreList = new ArrayList<>();
+		for(Genre g : Genre.values()) {
+			genreList.add(g);
+		}
+		MenuViews.showGenreMenu(genreList);
+		int opcion = 0;
+		Genre genre = null;
+		
+		try {
+			opcion = Listener.getInt();
+			genre = genreList.get(opcion-1);
+		}catch(java.util.InputMismatchException im) {
+			System.out.println("Formato no válido.");
+			showGenresMenu();
+		}catch( java.lang.IndexOutOfBoundsException io) {
+			System.out.println("Opción no válida.");
+			showGenresMenu();
+		}
+		
+		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesByGenre(genre);
+		MenuViews.showGamesList(gameList);
+		
+	}
 	
 	public static void showDateInput() {}
 	
-	public static void showPublisherMenu() {}
+	public static void showPublisherList() {}
 	
 	public static void showConsoleMenu() {}
 	
