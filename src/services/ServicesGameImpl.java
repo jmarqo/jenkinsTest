@@ -9,6 +9,7 @@ import data.Publishers;
 import data.PublishersImpl;
 import model.Game;
 import model.Genre;
+import model.Platform;
 import model.Publisher;
 
 public class ServicesGameImpl implements ServicesGame{
@@ -20,6 +21,45 @@ public class ServicesGameImpl implements ServicesGame{
 	public List<Game> getGames() {
 
 		return games.getGames();
+	}
+
+	@Override
+	public List<Game> getGames(String name) {
+
+		List<Game> r = new ArrayList<Game>();	
+		List<Game> games = getGames();
+
+		// Buscar juegos por nombre
+		for (int ii = 0; ii<games.size(); ii++) {
+
+			if(games.get(ii).getName().equals(name))
+				r.add(games.get(ii));
+
+		}
+
+		// Devolver la lista de juegos con ese nombre
+
+		return r;
+	}
+
+	@Override
+	public List<Game> getGames(String name, Platform platform) {
+
+		List<Game> r = new ArrayList<Game>();	
+		List<Game> games = getGames(name);
+
+		// Buscar juegos por nombre
+		for (int ii = 0; ii<games.size(); ii++) {
+
+			if(games.get(ii).getRelease().getPlatform().equals(platform))
+				r.add(games.get(ii));
+
+		}
+
+		// Devolver la lista de juegos con ese nombre
+
+		return r;
+
 	}
 
 	@Override
@@ -86,7 +126,7 @@ public class ServicesGameImpl implements ServicesGame{
 
 	@Override
 	public List<Publisher> getPublishers() {
-		
+
 		return publishers.getPublishers();
 	}
 
