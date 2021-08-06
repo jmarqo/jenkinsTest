@@ -36,81 +36,99 @@ public class ImporterImpl implements Importer{
 			if (!f.exists()) 
 				throw new FileNotFoundException();
 
-				// Abrir lector
+			// Abrir lector
 
-				fr = new FileReader(f);
-				br = new BufferedReader(fr);
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
 
-				// Recorrer cada línea del fichero
+			// Recorrer cada línea del fichero
 
-				String line;
+			String line;
+			br.readLine();
 
-				br.readLine();
+			while((line = br.readLine()) != null) {
+				
+				int jj = 0; // contador 
 
-				while((line = br.readLine()) != null) {
+				// Dividir la línea con el separador ","
+				String[] lineSplit = line.split(",");
 
-					// Dividir la línea con el separador ","
-					String[] lineSplit = line.split(",");
+				// Guardar los datos en objeto game
 
-					// Guardar los datos en objeto game
+				Game g = new Game();
+				Release rel = new Release();
+				Publisher pub = new Publisher();
 
-					Game g = new Game();
-					Release rel = new Release();
-					Publisher pub = new Publisher();
-
+				if (lineSplit[1].indexOf('"')>=0) {
+					
+					int kk = complexNameLength(lineSplit);
+					
+					g.setName(getComplexName(lineSplit, kk));
+					
+					jj = kk - 1;
+					
+				} else {
+				
 					g.setName(lineSplit[1]);
-
-					Platform pla = getPlatform(lineSplit[2]);
-
-					rel.setPlatform(pla);
-					rel.setYear(Integer.parseInt(lineSplit[3]));
-
-					g.setRelease(rel);
-
-					g.setGenre(getGenre(lineSplit[4]));
-
-					pub.setName(lineSplit[5]);
-
-					g.setPublisher(pub);
-
-					// Añadir a la lista games el objeto
-
-					games.addGame(g);
-
-					// Guardar los datos en objeto publisher
-
-					List<Publisher> pubList= publishers.getPublishers();
-
-					if (pubList.size() == 0)
-						// Añadir publisher a la lista
-						pubList.add(pub);
-
-					boolean estaEnLista = false;
-
-					int ii = 0;
-
-					while(!estaEnLista && ii < pubList.size()) {
-
-						if(pubList.get(ii).equals(pub))
-							estaEnLista = true;
-						ii++;
-					}
-
-					// Añadir publisher a la lista
-					if (!estaEnLista)
-						pubList.add(pub);
-
 				}
+
+				Platform pla = getPlatform(lineSplit[2+jj]);
+
+				rel.setPlatform(pla);
+				
+				try {
+					rel.setYear(Integer.parseInt(lineSplit[3+jj]));
+				} catch(NumberFormatException nfe){
+					//LOGGER.log(Level.SEVERE, "Formato de año incorrecto");
+					rel.setYear(0);
+				}
+
+				g.setRelease(rel);
+
+				g.setGenre(getGenre(lineSplit[4+jj]));
+
+				pub.setName(lineSplit[5+jj]);
+
+				g.setPublisher(pub);
+
+				// Añadir a la lista games el objeto
+
+				games.addGame(g);
+
+				// Guardar los datos en objeto publisher
+
+				List<Publisher> pubList= publishers.getPublishers();
+
+				if (pubList.size() == 0)
+					// Añadir publisher a la lista
+					pubList.add(pub);
+
+				boolean estaEnLista = false;
+
+				int ii = 0;
+
+				while(!estaEnLista && ii < pubList.size()) {
+
+					if(pubList.get(ii).equals(pub))
+						estaEnLista = true;
+					ii++;
+				}
+
+				// Añadir publisher a la lista
+				if (!estaEnLista)
+					pubList.add(pub);
+
+			}
 
 
 		}  catch(FileNotFoundException fnfe) {
-			
+
 			LOGGER.log(Level.INFO, "No se ha encontrado fichero CSV para importar");
-		
+
 		} catch(Exception e){
-			
-			LOGGER.log(Level.SEVERE, "No se ha podido cargar el fichero");
-			
+
+			LOGGER.log(Level.SEVERE, "No se ha podido cargar el fichero " + e);
+
 		}
 
 	}
@@ -119,8 +137,9 @@ public class ImporterImpl implements Importer{
 	public Platform getPlatform(String name) {
 
 		for(Platform p: Platform.values()) {
-			if(p.getConsole().equals(name))
+			if(p.getConsole().equals(name)) {
 				return p;
+			}
 
 		}
 
@@ -138,5 +157,29 @@ public class ImporterImpl implements Importer{
 		return null;
 	}
 
+	
+	public int complexNameLength(String[] a) {
+		
+		int ii = 2;
+		
+		while (a[ii].indexOf('"') < 0) {
+			ii++;
+		}
+		
+		return ii;
+	}
+	
+	public String getComplexName(String[] a, int kk) {
+		
+		String r = a[1];
+		
+		for(int ii = 2; ii <= kk; ii++) {
+			
+			r += ", " + a[ii];	
+		}
+		
+		return r;
+		
+	}
 
 }

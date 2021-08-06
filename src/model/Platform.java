@@ -10,7 +10,7 @@ public enum Platform {
 	PS2("PS2", "Sony"),
 	SNES("SNES", "Nintendo"),
 	GBA("GBA", "Nintendo"),
-	N3DS("N3DS", "Nintendo"),
+	N3DS("3DS", "Nintendo"),
 	PS4("PS4", "Sony"),
 	N64("N64", "Nintendo"),
 	PS("PS", "Sony"),

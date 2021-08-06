@@ -18,7 +18,7 @@ public class ResultsViews {
 			System.out.print(game.getRelease().getYear()+" | ");
 			System.out.print(game.getGenre().getName()+" | ");
 			System.out.print(game.getPublisher().getName()+" | ");
-			
+			i++;
 		}
 	}
 	
@@ -27,6 +27,7 @@ public class ResultsViews {
 		System.out.println("   Name");
 		for(Publisher p : publishers) {
 			System.out.println(i+". "+p.getName());
+			i++;
 		}
 	}
 
