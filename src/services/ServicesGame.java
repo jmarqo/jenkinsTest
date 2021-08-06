@@ -11,11 +11,11 @@ public interface ServicesGame {
 
 	public List<Game> getGames();
 	public List<Game> getGames(String name);
-	public List<Game> getGames(String name, Platform platform);
+	public Game getGames(String name, Platform platform);
 	
 	public boolean addGame(Game g);
 	
-	public boolean deleteGame(int index);
+	public boolean deleteGame(Game g);
 	
 	public boolean editGame(Game g, int index);
 	
