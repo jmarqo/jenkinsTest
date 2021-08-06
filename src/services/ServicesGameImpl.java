@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.Games;
@@ -38,8 +39,24 @@ public class ServicesGameImpl implements ServicesGame{
 
 	@Override
 	public List<Game> getGamesByDate(int year) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// obtener la lista de juegos
+		
+		List<Game> r = new ArrayList<Game>();	
+		List<Game> games = getGames();
+		
+		// recorrer la lista de juegos
+		
+		for(int ii = 0; ii < games.size(); ii++) {
+			
+			// si el año coincide con el año del juego, guardarlo en la nueva lista
+			if(games.get(ii).getRelease().getYear() == year) 
+				r.add(games.get(ii));
+				
+		}
+		
+		
+		return r;
 	}
 
 	@Override
