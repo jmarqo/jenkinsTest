@@ -110,8 +110,24 @@ public class ServicesGameImpl implements ServicesGame{
 
 	@Override
 	public List<Game> getGamesSXX() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Game> r = new ArrayList<Game>();
+		
+		List<Game> games = getGames();
+		
+		// Saber los años del siglo XX (funcion opcional)
+		
+		int start = 1901;
+		int end  = 2001;
+		
+		for (int ii = start; ii < end; ii++) {
+			
+			// llamar a la funcion para todos esos años y añadir datos a la nueva lista
+			r.addAll(getGamesByDate(ii));
+			
+		}
+		
+		return r;
 	}
 
 	@Override
