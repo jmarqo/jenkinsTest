@@ -12,6 +12,13 @@ import model.Genre;
 import model.Platform;
 import model.Publisher;
 
+/**
+ * <b>ServicesGameImp</b>
+ * Clase que implementa la interfaz <i>ServicesGame</i> y en la que se guarda de forma estatica toda la lista de juegos cargados.
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class ServicesGameImpl implements ServicesGame{
 
 	private Games games = new GamesImpl();
@@ -63,32 +70,21 @@ public class ServicesGameImpl implements ServicesGame{
 	}
 
 	@Override
-	public boolean addGame(Game g) {
+	public boolean addGame(Game game) {
 
-		return games.addGame(g);
+		return games.addGame(game);
 	}
 
 	@Override
-	public boolean deleteGame(Game g) {
+	public boolean deleteGame(Game game) {
 		
-		int index = 0;
-		
-		List<Game> gamesList = getGames();
-		
-		for (int ii = 0; ii<gamesList.size(); ii++) {
-
-			if(gamesList.get(ii).equals(g))
-				index = ii;
-
-		}
-		
-		return games.deleteGame(index);
+		return games.deleteGame(game);
 	}
 
 	@Override
-	public boolean editGame(Game g, int index) {
+	public boolean editGame(Game game, int index) {
 
-		return games.editGame(g, index);
+		return games.editGame(game, index);
 	}
 
 	@Override

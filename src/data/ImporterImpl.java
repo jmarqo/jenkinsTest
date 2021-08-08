@@ -14,6 +14,13 @@ import model.Publisher;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * <h3>ImporterImpl</h3>
+ * Clase que implementa la interfaz <i>Importer</i>
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class ImporterImpl implements Importer{
 
 	private Games games = new GamesImpl();
@@ -99,24 +106,26 @@ public class ImporterImpl implements Importer{
 
 				List<Publisher> pubList= publishers.getPublishers();
 
-				if (pubList.size() == 0)
+				if (pubList.size() == 0) {
 					// Añadir publisher a la lista
 					pubList.add(pub);
+				}else {
+					boolean estaEnLista = false;
 
-				boolean estaEnLista = false;
+					int ii = 0;
 
-				int ii = 0;
+					while(!estaEnLista && ii < pubList.size()) {
 
-				while(!estaEnLista && ii < pubList.size()) {
+						if(pubList.get(ii).equals(pub))
+							estaEnLista = true;
+						ii++;
+					}
 
-					if(pubList.get(ii).equals(pub))
-						estaEnLista = true;
-					ii++;
+					// Añadir publisher a la lista
+					if (!estaEnLista)
+						pubList.add(pub);
 				}
-
-				// Añadir publisher a la lista
-				if (!estaEnLista)
-					pubList.add(pub);
+				
 
 			}
 

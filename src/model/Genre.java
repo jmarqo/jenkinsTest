@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h3>Genre</h3>
+ * Enumerador con toda la lista de plataformas
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public enum Genre {
 	Sports("Sports"),
 	Platform("Platform"),

@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h3>Game</h3>
+ * Clase de tipo juego
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class Game {
 
 	private String name;

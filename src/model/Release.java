@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <b>Release</b>
+ * Clase para guardar la informacion de en que año se publico un juego y en que platafroma. Algunos juegos se publican en distintas plataformas en distintos años.
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class Release {
 
 	private Platform platform;

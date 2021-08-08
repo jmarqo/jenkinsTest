@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h3>Platform</h3>
+ * Enumerador con toda la lsita de consolas y la su correspondiente compañia
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public enum Platform {
 	Wii("Wii", "Nintendo"),
 	NES("NES", "Nintendo"),

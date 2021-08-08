@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Game;
 
-
+/**
+ * <h3>GamesImpl</h3>
+ * Clase que implementa la interfaz <i>Games</i>
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class GamesImpl implements Games{
 
 	private static List<Game> gameList = new ArrayList<Game>();
@@ -38,9 +44,9 @@ public class GamesImpl implements Games{
 	}
 
 	@Override
-	public boolean deleteGame(int index) {
+	public boolean deleteGame(Game game) {
 		
-		if(gameList.remove(index) != null)
+		if(gameList.remove(gameList.indexOf(game)) != null)
 			return true;
 		
 		return false;

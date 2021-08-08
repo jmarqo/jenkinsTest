@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h3>Publisher</h3>
+ * Clase para guardar los nombres de las empresas que publican los juegos
+ * @version 1.0
+ * @since 06/09/2020
+ * @author Eva y Christian
+ */
 public class Publisher {
 
 	private String name;
