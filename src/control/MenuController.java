@@ -1,6 +1,5 @@
 package control;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 import gui.MenuViews;
@@ -11,11 +10,20 @@ import model.Game;
 import services.ServicesGameImpl;
 import utilities.Listener;
 import data.ImporterImpl;
-
+/**
+ * <b>MenuController</b>
+ * Controlador del menu
+ * @version 1.0
+ * @since 06/09/2020
+ * @author F.Javier e Ismael
+ */
 public class MenuController {
 	
 	private static ServicesGameImpl services = new ServicesGameImpl();
 	
+	/**
+	 * Muestra el menu principal de la aplicación
+	 */
 	public static void showMainMenu() {
 		
 		importData();
@@ -67,12 +75,18 @@ public class MenuController {
 		
 	}
 	
+	/**
+	 * Muestra una lista con todos los juegos almacenados 
+	 */
 	public static void showGamesList() {
 		ResultsViews.showGamesList(services.getGames());
 		System.out.println("\nPulse 'Enter' para volver al menú principal.");
 		Listener.getString();
 	}
 	
+	/**
+	 * Muestra una lista con todos los géneros de los juegos (sin repetir)
+	 */
 	public static void showGenresMenu() {
 		ArrayList<Genre> genreList = new ArrayList<>();
 		for(Genre g : Genre.values()) {
@@ -101,10 +115,10 @@ public class MenuController {
 		
 	}
 	
-	public static void showDateInput() {
-		//
-	}
 	
+	/**
+	 * Muestra una lista con todos los juegos del siglo XX 
+	 */
 	public static void showXXCenturyGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesSXX();
 		ResultsViews.showGamesList(gameList);
@@ -112,6 +126,9 @@ public class MenuController {
 		Listener.getString();
 	}
 	
+	/**
+	 * Muestra una lista con todos los juegos de años pares
+	 */
 	public static void showEvenYearGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesEvenYear();
 		ResultsViews.showGamesList(gameList);
@@ -119,6 +136,9 @@ public class MenuController {
 		Listener.getString();
 	}
 	
+	/**
+	 * Muestra una lista con todos los creadores de videojuegos
+	 */
 	public static void showPublisherList() {
 		ArrayList<Publisher> publisherList = (ArrayList<Publisher>) services.getPublishers();
 		ResultsViews.showPublishersList(publisherList);
@@ -127,8 +147,9 @@ public class MenuController {
 		
 	}
 	
-	//public static void showPlatformMenu() {}
-	
+	/**
+	 * Muestra una lista con todos los juegos de Nintendo
+	 */
 	public static void showNintendoGames() {
 		ArrayList<Game> gameList = (ArrayList<Game>) services.getGamesNintendo();
 		ResultsViews.showGamesList(gameList);
@@ -136,16 +157,11 @@ public class MenuController {
 		Listener.getString();
 	}
 	
+	/**
+	 * Importa los datos de un CSV a local
+	 */
 	public static void importData() {
 		new ImporterImpl().importCSV();
 	}
-	
-	/*
-	 * 1. lista de juegos completa
-	 * 2. por genero (elegir genero)
-	 * 3. por fecha (introducir fecha. opción even)
-	 * 4. lista de creadores
-	 * 5. por consola (elegir consola)
-	 * */
 
 }

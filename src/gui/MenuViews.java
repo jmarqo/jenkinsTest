@@ -6,8 +6,18 @@ import model.Genre;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <b>MenuViews</b>
+ * Visualizado de los menus
+ * @version 1.0
+ * @since 06/09/2020
+ * @author F.Javier e Ismael
+ */
 public class MenuViews {
 	
+	/**
+	 * Muestra el menu principal 
+	 */
 	public static void showMainMenu() {
 		System.out.println("Elige una opción y pulsa enter: ");
 		System.out.println("1. Mostrar lista de juegos completa");
@@ -21,6 +31,10 @@ public class MenuViews {
 		System.out.println("0. Salir");
 	}
 	
+	/**
+	 * Muestra un menu con todos los géneros
+	 * @param genreList lista de generos que se desea mostrar
+	 */
 	public static void showGenreMenu(ArrayList<Genre> genreList) {
 		int i = 1;
 
@@ -30,14 +44,5 @@ public class MenuViews {
 			i++;
 		}
 	}
-	
-	/*
-	 * 0. menu inicial
-	 * 1. lista de juegos completa
-	 * 2. por genero (elegir genero)
-	 * 3. por fecha (introducir fecha. opción even)
-	 * 4. lista de creadores
-	 * 5. por consola (elegir consola)
-	 * */
 
 }
