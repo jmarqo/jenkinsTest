@@ -22,8 +22,6 @@ public class MenuViews {
 		System.out.println("Elige una opción y pulsa enter: ");
 		System.out.println("1. Mostrar lista de juegos completa");
 		System.out.println("2. Mostrar lista de juegos por género");
-		//System.out.println("3. Mostrar lista de juegos por editor");
-		//System.out.println("4. Mostrar lista de juegos por consola");
 		System.out.println("3. Mostrar lista de juegos del siglo XX");
 		System.out.println("4. Mostrar lista de juegos lanzados en años pares");
 		System.out.println("5. Mostrar lista de juegos de Nintendo");
