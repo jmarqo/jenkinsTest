@@ -5,8 +5,19 @@ import java.util.List;
 import model.Game;
 import model.Publisher;
 
+/**
+ * <b>ResultsViews</b>
+ * Visualizado de las listas
+ * @version 1.0
+ * @since 06/09/2020
+ * @author F.Javier e Ismael
+ */
 public class ResultsViews {
 	
+	/**
+	 * Muestra una lista en consola con todos los juegos que recibe por parametro
+	 * @param games Lista de juegos que se desea mostrar
+	 */
 	public static void showGamesList(List<Game> games) {
 		
 		int i = 1;
@@ -22,6 +33,10 @@ public class ResultsViews {
 		}
 	}
 	
+	/**
+	 * Muestra una lista con todos los creadfores de videojuegos que recibe por parametro
+	 * @param publishers Lista de creadores de videojuegos 
+	 */
 	public static void showPublishersList(List<Publisher> publishers) {
 		int i = 1;
 		System.out.println("   Name");
