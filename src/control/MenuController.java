@@ -21,12 +21,17 @@ public class MenuController {
 	
 	private static ServicesGameImpl services = new ServicesGameImpl();
 	
+	public static void initialize() {
+
+		importData();
+		showMainMenu();
+	}
+	
 	/**
 	 * Muestra el menu principal de la aplicación
 	 */
 	public static void showMainMenu() {
 		
-		importData();
 		System.out.flush();
 		MenuViews.showMainMenu();
 		
